@@ -18,12 +18,18 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func searchPressed(_ sender: UIButton) {
+        //dismiss keyboard after search pressed
+        searchTextField.endEditing(true)
+        
         //keep track on the text input
         print(searchTextField.text!)
     }
     
     //triggers go button on keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        searchTextField.endEditing(true)
+
         print(searchTextField.text!)
         return true
     }
