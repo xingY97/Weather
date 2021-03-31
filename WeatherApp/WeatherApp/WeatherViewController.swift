@@ -6,14 +6,27 @@
 //
 
 import UIKit
+//comform to UITextFiledDelegate to allow to edit textfield
+class WeatherViewController: UIViewController, UITextFieldDelegate {
 
-class WeatherViewController: UIViewController {
-
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var searchTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        searchTextField.delegate = self
     }
 
-
+    @IBAction func searchPressed(_ sender: UIButton) {
+        //keep track on the text input
+        print(searchTextField.text!)
+    }
+    
+    //triggers go button on keyboard
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print(searchTextField.text!)
+        return true
+    }
+    
 }
 

@@ -35,7 +35,10 @@
                                                 <rect key="frame" x="50" y="0.0" width="314" height="40"/>
                                                 <color key="backgroundColor" systemColor="systemFillColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="go"/>
+                                                <connections>
+                                                    <action selector="searchPressed:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="ayN-81-2KJ"/>
+                                                </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USy-MJ-Vv6">
                                                 <rect key="frame" x="374" y="1" width="40" height="38"/>
@@ -45,6 +48,9 @@
                                                 </constraints>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <state key="normal" backgroundImage="magnifyingglass" catalog="system"/>
+                                                <connections>
+                                                    <action selector="searchPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7uA-KY-LgK"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -71,16 +77,27 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5eG-sD-Dbb">
+                                <rect key="frame" x="0.0" y="174" width="414" height="34"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="5eG-sD-Dbb" secondAttribute="bottom" id="6XF-mf-dC9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NUg-1S-1Nc" secondAttribute="bottom" id="7D1-60-rZi"/>
                             <constraint firstItem="NUg-1S-1Nc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NBX-JL-je8"/>
+                            <constraint firstItem="5eG-sD-Dbb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="WDQ-Qi-cWH"/>
                             <constraint firstItem="NUg-1S-1Nc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="aEW-Er-k80"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NUg-1S-1Nc" secondAttribute="trailing" id="rJg-7t-sbP"/>
+                            <constraint firstAttribute="trailing" secondItem="5eG-sD-Dbb" secondAttribute="trailing" id="sy7-R2-rnt"/>
+                            <constraint firstItem="5eG-sD-Dbb" firstAttribute="top" secondItem="NUg-1S-1Nc" secondAttribute="bottom" id="yd6-aH-rrY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchTextField" destination="KlY-Ot-gDv" id="Bhu-db-pC9"/>
+                        <outlet property="temperatureLabel" destination="ka7-x6-1q4" id="xgF-er-LUe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
