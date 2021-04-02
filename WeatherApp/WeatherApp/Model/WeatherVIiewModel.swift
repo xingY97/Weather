@@ -24,18 +24,22 @@ class WeatherViewModel {
             request.httpMethod = "GET"
             
             URLSession.shared.dataTask(with: request) { (data, response, error) in
-                    if let response = response {
-                        print(response)
+                if let response = response {
+                    print(response)
+                }
+                //Check for errors
+
+                if let data = data {
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data, options: [])
+                        print(json)
+                    } catch {
+                        print(error)
                     }
-                    if let data = data {
-                        do {
-                            let json = try JSONSerialization.jsonObject(with: data, options: [])
-                            print(json)
-                        } catch {
-                            print(error)
-                        }
-                    }
-                }.resume()
+                }
+            }
+            
+            .resume() // Start the API CAll
         }
     }
     
@@ -43,7 +47,7 @@ class WeatherViewModel {
         let decoder = JSONDecoder()
         do{
             let decodedData = try decoder.decode(WeatherTempData.self, from: weatherTempData)
-            print(decodedData.weather[0].description)
+            print(decodedData.weather[0].weatherDescription)
         } catch {
             print(error)
         }

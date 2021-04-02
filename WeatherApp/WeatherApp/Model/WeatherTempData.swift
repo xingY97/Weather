@@ -6,21 +6,22 @@
 //
 
 //day name, weather icon, description, city
-import Foundation
-
-struct WeatherTempData: Decodable {
-    
-    let name: String
+struct WeatherTempData: Codable {
     let main: Main
     let weather: [Weather]
-
 }
 
-struct Main: Decodable {
-    
+// MARK: - Main
+struct Main: Codable {
     let temp: Double
 }
 
-struct Weather: Decodable {
-    let description: String
+// MARK: - Weather
+struct Weather: Codable {
+    let weatherDescription, icon: String
+
+    enum CodingKeys: String, CodingKey {
+        case weatherDescription = "description"
+        case icon
+    }
 }
